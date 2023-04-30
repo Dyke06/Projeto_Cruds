@@ -1,3 +1,8 @@
+<?php
+    include("db/conexao.php")
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +24,7 @@
     </header>
 
     <main>
+        <hr>
         <?php 
             $menuop = (isset($_GET["menuop"]))?$_GET["menuop"]:"home";
             switch($menuop){
@@ -28,7 +34,15 @@
                 
                 case 'usuario':
                     include("paginas/usuario/usuario.php");
-                    break;    
+                    break;   
+                    
+                case 'cad-usuario':
+                    include("paginas/usuario/cad-usuario.php");
+                    break; 
+
+                case 'inserir-usuario':
+                    include("paginas/usuario/inserir-usuario.php");
+                    break;     
 
                 case 'editora':
                     include("paginas/editora/editora.php");
@@ -45,7 +59,6 @@
                 default:
                     include("paginas/home/home.php");
                     break;
-
             }
         ?>
     </main>
