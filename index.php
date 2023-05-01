@@ -1,6 +1,5 @@
 <?php
     include("db/conexao.php")
-
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +25,7 @@
     <main>
         <hr>
         <?php 
-            $menuop = (isset($_GET["menuop"]))?$_GET["menuop"]:"home";
-            switch($menuop){
+            switch(@$_REQUEST["menuop"]){
                 case 'home':
                     include("paginas/home/home.php");
                     break;
