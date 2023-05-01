@@ -14,6 +14,8 @@
             <th>Cidade</th> 
             <th>Endereço</th>  
             <th>Email</th>   
+            <th>Edita</th>   
+            <th>Excluir</th>   
         </tr>
 
     </thead>
@@ -29,6 +31,8 @@
             <td><?=$dados["cidadeUsuario"]?></td> 
             <td><?=$dados["endereçoUsuario"]?></td> 
             <td><?=$dados["emailUsuario"]?></td> 
+            <td><a href="index.php?menuop=editar-usuario&idUsuario=<?=$dados["idUsuario"]?>">Edita</a></td>
+            <td><a href="index.php?menuop=excluir-usuario&idUsuario=<?=$dados["idUsuario"]?>">Exclui</a></td>
         </tr>
         <?php 
             }

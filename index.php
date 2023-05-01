@@ -39,10 +39,22 @@
                 case 'cad-usuario':
                     include("paginas/usuario/cad-usuario.php");
                     break; 
+                
+                case 'editar-usuario':
+                    include("paginas/usuario/editar-usuario.php");
+                    break;
+
+                case 'atualizar-usuario':
+                    include("paginas/usuario/atualizar-usuario.php");
+                    break;
 
                 case 'inserir-usuario':
                     include("paginas/usuario/inserir-usuario.php");
-                    break;     
+                    break;
+
+                case 'excluir-usuario':
+                    include("paginas/usuario/excluir-usuario.php");
+                    break;
 
                 case 'editora':
                     include("paginas/editora/editora.php");
