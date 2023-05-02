@@ -4,7 +4,7 @@
 
 
 <div>
-    <form action="index.php?menuop=inserir-usuario" method="POST">
+    <form action="?menuop=inserir-usuario" method="POST">
         <div>
             <label for="nomeUsuario">Nome:</label>
             <input type="text" name="nomeUsuario">

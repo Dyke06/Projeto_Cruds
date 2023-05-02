@@ -1,7 +1,7 @@
 <?php 
 $idUsuario = $_GET["idUsuario"];
 $sql = "SELECT * FROM tbusuario WHERE idUsuario= {$idUsuario}";
-$rs = mysqli_query($conexao, $sql) or die ("Erro ao recuperar os dados" . mysqli_error($conexao));
+$rs = $conexao -> query($sql);
 $dados = mysqli_fetch_assoc($rs);
 ?>
 

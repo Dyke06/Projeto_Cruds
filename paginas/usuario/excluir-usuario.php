@@ -2,11 +2,18 @@
     <h3>Excluir Usuario</h3>
 </header>
 <?php 
-    $idUsuario = mysqli_real_escape_string($conexao, $_GET["idUsuario"]);
+    $idUsuario = $_GET["idUsuario"];
     $sql = "DELETE FROM tbusuario WHERE idUsuario= '{$idUsuario}'";
 
-    mysqli_query($conexao, $sql) or die("Erro ao excluir o registro");
+    $rs = $conexao -> query($sql);
 
-    echo "Registro excluido com sucesso! "
+    if($rs==true){
+        print "<script>alert('Cadastro deletado com sucesso');</script>";
+        print "<script>location.href='?menuop=usuario';</script>";
+    }
+    else{
+        print "<script>alert('Erro ao deletar o usuário.');</script>";
+        print "<script>location.href='?menuop=usuario';</script>";
+    }
 
 ?>

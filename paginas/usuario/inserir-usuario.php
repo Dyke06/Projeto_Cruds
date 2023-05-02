@@ -1,6 +1,3 @@
-<header>
-    <h3>Inserir Usuário</h3>
-</header>
 
 <?php 
     $nomeUsuario = $_POST["nomeUsuario"]; 
@@ -19,7 +16,15 @@
         '{$emailUsuario}'
     )
     ";
-    mysqli_query($conexao, $sql) or die("Erro ao executar a consulta. " . mysqli_error($conexao));
-
-    echo "O registro foi inserido com sucesso!";
+    $rs = $conexao -> query($sql);
+    
+    if($rs==true){
+        print "<script>alert('Cadastro com sucesso');</script>";
+        print "<script>location.href='?menuop=usuario';</script>";
+    }
+    else{
+        print "<script>alert('Erro ao cadastrar o usuário.');</script>";
+        print "<script>location.href='?menuop=usuario';</script>";
+    }
 ?>
+

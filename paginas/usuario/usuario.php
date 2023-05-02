@@ -4,39 +4,42 @@
 
 <div>
     <a href="index.php?menuop=cad-usuario">Novo Usuario</a>
-
 </div>
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th> 
-            <th>Nome</th> 
-            <th>Cidade</th> 
-            <th>Endereço</th>  
-            <th>Email</th>   
-            <th>Edita</th>   
-            <th>Excluir</th>   
-        </tr>
 
-    </thead>
-    <tbody>
         <?php 
             $sql = "SELECT * FROM tbusuario";
-            $rs = mysqli_query($conexao, $sql) or die ("Erro ao executar a consulta" . mysqli_error($conexao));
-            while($dados = mysqli_fetch_assoc($rs)){
-        ?>
-        <tr>
-            <td><?=$dados["idUsuario"]?></td> 
-            <td><?=$dados["nomeUsuario"]?></td> 
-            <td><?=$dados["cidadeUsuario"]?></td> 
-            <td><?=$dados["endereçoUsuario"]?></td> 
-            <td><?=$dados["emailUsuario"]?></td> 
-            <td><a href="?menuop=editar-usuario&idUsuario=<?=$dados["idUsuario"]?>">Edita</a></td>
-            <td><a href="index.php?menuop=excluir-usuario&idUsuario=<?=$dados["idUsuario"]?>">Exclui</a></td>
-        </tr>
-        <?php 
+            $rs = $conexao -> query($sql);
+            $qtd = $rs ->num_rows;
+
+            if($qtd > 0){
+                print "<table class='table table-hover table-striped table-bordered'>";
+                print "<tr class='table-dark'>";
+                    print "<th>#</th>";
+                    print "<th>Nome</th>";
+                    print "<th>Cidade</th>";
+                    print "<th>Endereço</th>";
+                    print "<th>Email</th>";
+                    print "<th>Ações</th>";
+                    print "</tr>";
+                
+                while($row = $rs ->fetch_object()){
+                    print "<tr>";
+                    print "<td>".$row -> idUsuario."</td>";
+                    print "<td>" .$row -> nomeUsuario."</td>";
+                    print "<td>" .$row -> cidadeUsuario."</td>";
+                    print "<td>" .$row -> endereçoUsuario."</td>";
+                    print "<td>" .$row -> emailUsuario."</td>"; 
+                    print "<td>
+                            <button onclick=\"location.href='?menuop=editar-usuario&idUsuario=".$row-> idUsuario."';\" class='btn btn-success'> Editar </button> 
+                            <button onclick=\"location.href='?menuop=excluir-usuario&idUsuario=".$row -> idUsuario."';\" class='btn btn-danger'>Excluir</button> 
+                    </td>"; 
+                    print "</tr>";
+                }
+                print "</table>";
+              }else{
+                print "<p>Não encontrou resultado.</p>";
             }
         ?>
+        
 
-    </tbody>
-</table>
+    
