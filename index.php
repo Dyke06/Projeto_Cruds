@@ -13,18 +13,18 @@
 </head>
 <body>
     <header>
-        <h1>Sitema de Livraria</h1>
+        <h1>WDA Livraria</h1>
         <nav>
-            <a href="index.php?menuop=home">Home</a> |
-            <a href="index.php?menuop=usuario">Usuario</a>|
-            <a href="index.php?menuop=editora">Editora</a> |
-            <a href="index.php?menuop=livro">Livros</a> |
-            <a href="index.php?menuop=aluguel">Aluguel</a> |
+            <a href="?menuop=home">Home</a> |
+            <a href="?menuop=usuario">Usuario</a>|
+            <a href="?menuop=editora">Editora</a> |
+            <a href="?menuop=livro">Livros</a> |
+            <a href="?menuop=aluguel">Aluguel</a> |
         </nav>
     </header>
 
     <main>
-        <hr>
+        <div class="container">
         <?php 
             switch(@$_REQUEST["menuop"]){
                 case 'home':
@@ -72,6 +72,7 @@
                     break;
             }
         ?>
+        </div>
     </main>
 
 <script>"js/bootstrap.bundle.min.js"</script>

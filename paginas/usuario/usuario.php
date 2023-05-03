@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+</head>
+<body>
+    
 <header>
     <h3>Usuario</h3>
 </header>
@@ -31,7 +41,7 @@
                     print "<td>" .$row -> emailUsuario."</td>"; 
                     print "<td>
                             <button onclick=\"location.href='?menuop=editar-usuario&idUsuario=".$row-> idUsuario."';\" class='btn btn-success'> Editar </button> 
-                            <button onclick=\"location.href='?menuop=excluir-usuario&idUsuario=".$row -> idUsuario."';\" class='btn btn-danger'>Excluir</button> 
+                            <button onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-usuario&idUsuario=".$row -> idUsuario."';} else{false;}\" class='btn btn-danger'>Excluir</button> 
                     </td>"; 
                     print "</tr>";
                 }
@@ -39,7 +49,7 @@
               }else{
                 print "<p>Não encontrou resultado.</p>";
             }
-        ?>
-        
-
+        ?>       
+    </body>
+</html>
     
