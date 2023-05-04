@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css1/usuario.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Usuario</title>
 </head>
 <body>
     
 <header>
-    <h3>Usuario</h3>
-</header>
+    <div class="alinhar">
+        <div class="titu">
+            <h3><i class="bi bi-person-circle"></i>Usuario</h3>
+        </div>   
 
-<div>
-    <a href="index.php?menuop=cad-usuario">Novo Usuario</a>
-</div>
+        <div class="link">
+            <a href="index.php?menuop=cad-usuario" class="botao">Novo Usuario +</a>
+        </div>
+    </div>    
+</header>
 
         <?php 
             $sql = "SELECT * FROM tbusuario";
@@ -40,8 +46,9 @@
                     print "<td>" .$row -> endereçoUsuario."</td>";
                     print "<td>" .$row -> emailUsuario."</td>"; 
                     print "<td>
-                            <button onclick=\"location.href='?menuop=editar-usuario&idUsuario=".$row-> idUsuario."';\" class='btn btn-success'> Editar </button> 
-                            <button onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-usuario&idUsuario=".$row -> idUsuario."';} else{false;}\" class='btn btn-danger'>Excluir</button> 
+                            <a onclick=\"location.href='?menuop=editar-usuario&idUsuario=".$row-> idUsuario."';\" class='btn btn-success btn-sm'> <i class='bi bi-pencil-fill'></i>
+                            </a> 
+                            <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-usuario&idUsuario=".$row -> idUsuario."';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a> 
                     </td>"; 
                     print "</tr>";
                 }

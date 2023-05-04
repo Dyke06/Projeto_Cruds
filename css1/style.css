@@ -1,0 +1,26 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: rgb(224, 222, 222);
+    
+}
+
+nav a h3{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.nav-link{
+    color: rgb(160, 158, 158);
+    
+}
+
+.nav-link:hover{
+    border-radius: 20px;
+    background-color: rgb(31, 89, 197);
+    transition: 0.5s;
+    color: rgb(243, 242, 242);
+}

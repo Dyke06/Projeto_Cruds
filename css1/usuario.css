@@ -1,0 +1,37 @@
+
+.alinhar{
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.titu{
+    border-right: 1px solid rgb(97, 95, 95);
+    padding-right: 10px;
+}
+
+.link a{
+    margin-left: 10px;
+}
+
+.link .botao{
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    border-radius: 50px;
+    background-color: rgb(12, 104, 241);
+}
+
+.link .botao:hover{
+    background-color:rgb(8, 72, 156);
+    border: 1px solid rgb(12, 104, 241);
+    transition: 0.5s;
+}
+
+
+
+table{
+    margin-top:20px;
+}
+
