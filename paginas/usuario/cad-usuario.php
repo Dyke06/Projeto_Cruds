@@ -16,6 +16,11 @@
         </div>
 
         <div>
+            <label for="numeroUsuario">Telefone:</label>
+            <input type="number" name="numeroUsuario">
+        </div>
+
+        <div>
             <label for="endereçoUsuario">Endereço:</label>
             <input type="text" name="endereçoUsuario">
         </div>

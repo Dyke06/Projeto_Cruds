@@ -32,7 +32,8 @@
                 print "<tr class='table-dark'>";
                     print "<th>#</th>";
                     print "<th>Nome</th>";
-                    print "<th>Cidade</th>";
+                    print "<th>Cidade</th>"; 
+                    print "<th>Telefone</th>"; 
                     print "<th>Endereço</th>";
                     print "<th>Email</th>";
                     print "<th>Ações</th>";
@@ -42,7 +43,8 @@
                     print "<tr>";
                     print "<td>".$row -> idUsuario."</td>";
                     print "<td>" .$row -> nomeUsuario."</td>";
-                    print "<td>" .$row -> cidadeUsuario."</td>";
+                    print "<td>" .$row -> cidadeUsuario."</td>"; 
+                    print "<td>" .$row -> numeroUsuario."</td>"; 
                     print "<td>" .$row -> endereçoUsuario."</td>";
                     print "<td>" .$row -> emailUsuario."</td>"; 
                     print "<td>

@@ -6,12 +6,14 @@
     $idUsuario = $_POST["idUsuario"];
     $nomeUsuario = $_POST["nomeUsuario"]; 
     $cidadeUsuario = $_POST["cidadeUsuario"]; 
+    $numeroUsuario = $_POST["numeroUsuario"]; 
     $endereçoUsuario =  $_POST["endereçoUsuario"]; 
     $emailUsuario = $_POST["emailUsuario"]; 
 
     $sql = "UPDATE tbusuario SET 
     nomeUsuario = '{$nomeUsuario}', 
-    cidadeUsuario = '{$cidadeUsuario}',
+    cidadeUsuario = '{$cidadeUsuario}', 
+    numeroUsuario = '{$numeroUsuario}', 
     endereçoUsuario = '{$endereçoUsuario}',
     emailUsuario = '{$emailUsuario}'
     WHERE idUsuario = '{$idUsuario}'

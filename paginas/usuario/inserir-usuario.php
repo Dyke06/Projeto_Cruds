@@ -2,16 +2,19 @@
 <?php 
     $nomeUsuario = $_POST["nomeUsuario"]; 
     $cidadeUsuario = $_POST["cidadeUsuario"]; 
+    $numeroUsuario = $_POST["numeroUsuario"]; 
     $endereçoUsuario =  $_POST["endereçoUsuario"]; 
     $emailUsuario = $_POST["emailUsuario"]; 
     $sql = "INSERT INTO tbusuario(
     nomeUsuario, 
-    cidadeUsuario, 
+    cidadeUsuario,
+    numeroUsuario, 
     endereçoUsuario, 
     emailUsuario)
     VALUES(
         '{$nomeUsuario}', 
-        '{$cidadeUsuario}', 
+        '{$cidadeUsuario}',  
+        '{$numeroUsuario}',  
         '{$endereçoUsuario}', 
         '{$emailUsuario}'
     )

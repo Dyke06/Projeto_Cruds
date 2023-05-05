@@ -2,7 +2,7 @@
 $idUsuario = $_GET["idUsuario"];
 $sql = "SELECT * FROM tbusuario WHERE idUsuario= {$idUsuario}";
 $rs = $conexao -> query($sql);
-$dados = mysqli_fetch_assoc($rs);
+$dados = $rs -> fetch_assoc();
 ?>
 
 <header>
@@ -24,6 +24,11 @@ $dados = mysqli_fetch_assoc($rs);
         <div>
             <label for="cidadeUsuario">Cidade:</label>
             <input type="text" name="cidadeUsuario" value="<?=$dados["cidadeUsuario"]?>">
+        </div>
+
+        <div>
+            <label for="numeroUsuario">Telefone:</label>
+            <input type="text" name="numeroUsuario" value="<?=$dados["numeroUsuario"]?>">
         </div>
 
         <div>
