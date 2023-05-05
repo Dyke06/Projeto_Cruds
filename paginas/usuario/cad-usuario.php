@@ -1,5 +1,5 @@
 <header>
-    <h3>Cadastro de Contato</h3>
+    <h3>Cadastro de Usuário</h3>
 </header>
 
 
