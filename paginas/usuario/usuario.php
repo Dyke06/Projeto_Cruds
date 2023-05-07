@@ -48,7 +48,7 @@
                     print "<td>" .$row -> endereçoUsuario."</td>";
                     print "<td>" .$row -> emailUsuario."</td>"; 
                     print "<td>
-                            <a onclick=\"location.href='?menuop=editar-usuario&idUsuario=".$row-> idUsuario."';\" class='btn btn-success btn-sm'> <i class='bi bi-pencil-fill'></i>
+                            <a onclick=\"location.href='?menuop=editar-usuario&idUsuario=".$row-> idUsuario."';\" class='btn btn-primary btn-sm'> <i class='bi bi-pencil-fill'></i>
                             </a> 
                             <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-usuario&idUsuario=".$row -> idUsuario."';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a> 
                     </td>"; 

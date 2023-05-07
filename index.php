@@ -62,7 +62,7 @@
                 case 'excluir-usuario':
                     include("paginas/usuario/excluir-usuario.php");
                     break;
-
+                    
                 case 'editora':
                     include("paginas/editora/editora.php");
                     break;
@@ -82,7 +82,6 @@
         ?>
         </div>
     </main>
-
-<script>"js/bootstrap.bundle.min.js"</script>
+    <script>"js/bootstrap.bundle.min.js"</script>
 </body>
 </html>
