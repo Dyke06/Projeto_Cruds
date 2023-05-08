@@ -16,9 +16,45 @@
         </div>   
 
         <div class="link">
-            <a href="index.php?menuop=cad-usuario" class="botao">Novo Usuario +</a>
+            <a href="index.php?menuop=cad-aluguel" class="botao">Novo Aluguel +</a>
         </div>
     </div>    
 </header>
+
+<?php 
+            $sql = "SELECT * FROM tbaluguel";
+            $rs = $conexao -> query($sql);
+            $qtd = $rs ->num_rows;
+
+            if($qtd > 0){
+                print "<table class='table table-hover table-striped table-bordered'>";
+                print "<tr class='table-dark'>";
+                    print "<th>#</th>";
+                    print "<th>Livro</th>";
+                    print "<th>Usuario</th>"; 
+                    print "<th>Data</th>"; 
+                    print "<th>Previsão de devolução</th>";
+                    print "<th>Ações</th>";
+                    print "</tr>";
+                
+                while($row = $rs ->fetch_object()){
+                    print "<tr>";
+                    print "<td>".$row -> idAluguel."</td>";
+                    print "<td>" .$row -> livroAluguel."</td>";
+                    print "<td>" .$row -> nomeAluguel."</td>"; 
+                    print "<td>" .$row -> dataAluguel."</td>"; 
+                    print "<td>" .$row -> devolucaoAluguel."</td>"; 
+                    print "<td>
+                            <a onclick=\"location.href='?menuop=editar-aluguek&idAluguel=".$row-> idAluguel."';\" class='btn btn-primary btn-sm'> <i class='bi bi-pencil-fill'></i>
+                            </a> 
+                            <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-aluguel&idAluguel=".$row -> idAluguel."';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a> 
+                    </td>"; 
+                    print "</tr>";
+                }
+                print "</table>";
+              }else{
+                print "<p>Não encontrou resultado.</p>";
+            }
+        ?> 
 </body>
 </html>
