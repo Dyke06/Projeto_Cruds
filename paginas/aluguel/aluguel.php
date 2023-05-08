@@ -32,7 +32,7 @@
                     print "<th>#</th>";
                     print "<th>Livro</th>";
                     print "<th>Usuario</th>"; 
-                    print "<th>Data</th>"; 
+                    print "<th>Data do aluguel</th>"; 
                     print "<th>Previsão de devolução</th>";
                     print "<th>Ações</th>";
                     print "</tr>";
@@ -45,8 +45,6 @@
                     print "<td>" .$row -> dataAluguel."</td>"; 
                     print "<td>" .$row -> devolucaoAluguel."</td>"; 
                     print "<td>
-                            <a onclick=\"location.href='?menuop=editar-aluguek&idAluguel=".$row-> idAluguel."';\" class='btn btn-primary btn-sm'> <i class='bi bi-pencil-fill'></i>
-                            </a> 
                             <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-aluguel&idAluguel=".$row -> idAluguel."';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a> 
                     </td>"; 
                     print "</tr>";
