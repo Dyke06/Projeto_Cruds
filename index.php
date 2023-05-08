@@ -62,15 +62,56 @@
                 case 'excluir-usuario':
                     include("paginas/usuario/excluir-usuario.php");
                     break;
+
+                case 'livro':
+                    include("paginas/livro/livro.php");
+                    break; 
+
+                case 'cad-livro':
+                    include("paginas/livro/cad-livro.php");
+                    break;
+                    
+                case 'inserir-livro':
+                    include("paginas/livro/inserir-livro.php");
+                    break;
+
+                case 'editar-livro':
+                    include("paginas/livro/editar-livro.php");
+                    break;
+
+                case 'atualizar-livro':
+                    include("paginas/livro/atualizar-livro.php");
+                    break;
+
+                case 'excluir-livro':
+                    include("paginas/livro/excluir-livro.php");
+                    break;
+                    
                     
                 case 'editora':
                     include("paginas/editora/editora.php");
                     break;
-                    
-                case 'livro':
-                    include("paginas/livro/livro.php");
+
+                case 'cad-editora':
+                    include("paginas/editora/cad-editora.php");
                     break;
-                    
+
+                case 'inserir-editora':
+                    include("paginas/editora/inserir-editora.php");
+                    break;
+
+                case 'editar-editora':
+                    include("paginas/editora/editar-editora.php");
+                    break;
+
+                case 'atualizar-editora':
+                    include("paginas/editora/atualizar-editora.php");
+                    break;
+
+                case 'excluir-editora':
+                    include("paginas/editora/excluir-editora.php");
+                    break;
+                      
                 case 'aluguel':
                     include("paginas/aluguel/aluguel.php");
                     break;

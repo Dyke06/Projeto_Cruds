@@ -18,9 +18,50 @@
         </div>   
 
         <div class="link">
-            <a href="index.php?menuop=cad-usuario" class="botao">Novo Usuario +</a>
+            <a href="index.php?menuop=cad-livro" class="botao">Novo Livro +</a>
         </div>
     </div>    
 </header>
+
+<?php 
+            $sql = "SELECT * FROM tbLivro";
+            $rs = $conexao -> query($sql);
+            $qtd = $rs ->num_rows;
+
+            if($qtd > 0){
+                print "<table class='table table-hover table-striped table-bordered'>";
+                print "<tr class='table-dark'>";
+                    print "<th>#</th>";
+                    print "<th>Nome</th>";
+                    print "<th>Autor</th>"; 
+                    print "<th>Editora</th>"; 
+                    print "<th>Data de lançameto</th>";
+                    print "<th>Estoque</th>";
+                    print "<th>Ações</th>";
+                    print "</tr>";
+                
+                while($row = $rs ->fetch_object()){
+                    print "<tr>";
+                    print "<td>".$row -> idLivro."</td>";
+                    print "<td>" .$row -> nomeLivro."</td>";
+                    print "<td>" .$row -> autorLivro."</td>"; 
+                    print "<td>" .$row -> editoraLivro."</td>"; 
+                    print "<td>" .$row -> dataLivro."</td>";
+                    print "<td class=''>" .$row -> estoqueLivro."</td>"; 
+                    print "<td>
+                            <a onclick=\"location.href='?menuop=editar-livro&idLivro=".$row-> idLivro."';\" class='btn btn-primary btn-sm'> <i class='bi bi-pencil-fill'></i>
+                            </a> 
+                            <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-livro&idLivro=".$row -> idLivro."';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a> 
+                    </td>"; 
+                    print "</tr>";
+                }
+                print "</table>";
+              }else{
+                print "<p>Não encontrou resultado.</p>";
+            }
+        ?> 
+
+
+
 </body>
 </html>
