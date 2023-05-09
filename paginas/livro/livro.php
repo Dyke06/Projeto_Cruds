@@ -41,6 +41,7 @@
                     print "</tr>";
                 
                 while($row = $rs ->fetch_object()){
+                    
                     print "<tr>";
                     print "<td>".$row -> idLivro."</td>";
                     print "<td>" .$row -> nomeLivro."</td>";

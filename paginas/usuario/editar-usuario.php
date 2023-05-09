@@ -11,38 +11,38 @@ $dados = $rs -> fetch_assoc();
 
 <div>
     <form action="index.php?menuop=atualizar-usuario" method="POST">
-        <div>
-            <label for="idUsuario">ID</label>
-            <input type="text" name="idUsuario" value="<?=$dados["idUsuario"]?>">
+        <div class="mb-3">
+            <label class="form-label" for="idUsuario">ID</label>
+            <input class="form-control" type="text" name="idUsuario" value="<?=$dados["idUsuario"]?>">
         </div>
 
-        <div>
-            <label for="nomeUsuario">Nome:</label>
-            <input type="text" name="nomeUsuario" value="<?=$dados["nomeUsuario"]?>">
+        <div class="mb-3">
+            <label class="form-label" for="nomeUsuario">Nome:</label>
+            <input class="form-control" type="text" name="nomeUsuario" value="<?=$dados["nomeUsuario"]?>">
         </div>
 
-        <div>
-            <label for="cidadeUsuario">Cidade:</label>
-            <input type="text" name="cidadeUsuario" value="<?=$dados["cidadeUsuario"]?>">
+        <div class="mb-3">
+            <label class="form-label" for="cidadeUsuario">Cidade:</label>
+            <input class="form-control" type="text" name="cidadeUsuario" value="<?=$dados["cidadeUsuario"]?>">
         </div>
 
-        <div>
-            <label for="numeroUsuario">Telefone:</label>
-            <input type="text" name="numeroUsuario" value="<?=$dados["numeroUsuario"]?>">
+        <div class="mb-3">
+            <label class="form-label" for="numeroUsuario">Telefone:</label>
+            <input class="form-control" type="text" name="numeroUsuario" value="<?=$dados["numeroUsuario"]?>">
         </div>
 
-        <div>
-            <label for="endereçoUsuario">Endereço:</label>
-            <input type="text" name="endereçoUsuario" value="<?=$dados["endereçoUsuario"]?>">
+        <div class="mb-3">
+            <label class="form-label" for="endereçoUsuario">Endereço:</label>
+            <input class="form-control" type="text" name="endereçoUsuario" value="<?=$dados["endereçoUsuario"]?>">
         </div>
 
-        <div>
-            <label for="emailUsuario">Email:</label>
-            <input type="email" name="emailUsuario" value="<?=$dados["emailUsuario"]?>">
+        <div class="mb-3">
+            <label class="form-label" for="emailUsuario">Email:</label>
+            <input class="form-control" type="email" name="emailUsuario" value="<?=$dados["emailUsuario"]?>">
         </div>
 
-        <div>
-            <input type="submit" value = "Atualizar" name="btnAtualizar">
+        <div class="mb-3">
+            <input class="btn btn-success" type="submit" value = "Atualizar" name="btnAtualizar">
         </div>
 
     </form>

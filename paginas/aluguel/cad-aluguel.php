@@ -5,28 +5,48 @@
 
 <div>
     <form action="?menuop=inserir-aluguel" method="POST">
-        <div>
-            <label for="livroAluguel">Livro:</label>
-            <input type="text" name="livroAluguel">
+        <div class="mb-3">
+            <label class="form-label" for="livroAluguel">Livro:</label>
+
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-book"></i></span>
+                <input class="form-control" type="text" name="livroAluguel" required>
+            </div>
+            
         </div>
 
-        <div>
-            <label for="nomeAluguel">Nome:</label>
-            <input type="text" name="nomeAluguel">
+        <div class="mb-3">
+            <label class="form-label" for="nomeAluguel">Nome:</label>
+
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                <input class="form-control" type="text" name="nomeAluguel" required>
+            </div>
+            
         </div>
 
-        <div>
-            <label for="dataAluguel">Data do aluguel:</label>
-            <input type="date" name="dataAluguel">
+        <div class="mb-3 col-3">
+            <label class="form-label" for="dataAluguel">Data do aluguel:</label>
+
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                <input class="form-control" type="date" name="dataAluguel" required>
+            </div>
+            
         </div>
 
-        <div>
-            <label for="devolucaoAluguel">Devolução:</label>
-            <input type="date" name="devolucaoAluguel">
+        <div class="mb-3 col-3">
+            <label class="form-label" for="devolucaoAluguel">Devolução:</label>
+
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-calendar-check-fill"></i></span>
+                <input class="form-control" type="date" name="devolucaoAluguel" required>
+            </div>
+            
         </div>
 
-        <div>
-            <input type="submit" value = "Adicionar" name="btnAdicionar">
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value = "Adicionar" name="btnAdicionar">
         </div>
 
     </form>

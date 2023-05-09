@@ -5,33 +5,57 @@
 
 <div>
     <form action="?menuop=inserir-usuario" method="POST">
-        <div>
-            <label for="nomeUsuario">Nome:</label>
-            <input type="text" name="nomeUsuario">
+        <div class="mb-3">
+            <label class="form-label" for="nomeUsuario">Nome:</label>
+
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                <input class="form-control" type="text" name="nomeUsuario" required>
+            </div>
+            
         </div>
 
-        <div>
-            <label for="cidadeUsuario">Cidade:</label>
-            <input type="text" name="cidadeUsuario">
+        <div class="mb-3">
+            <label class="form-label for="cidadeUsuario">Cidade:</label>
+
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-building"></i></span>
+                <input class="form-control" type="text" name="cidadeUsuario" required>
+            </div>           
         </div>
 
-        <div>
-            <label for="numeroUsuario">Telefone:</label>
-            <input type="number" name="numeroUsuario">
+        <div class="mb-3">
+            <label class="form-label for="numeroUsuario">Telefone:</label>
+
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
+                <input class="form-control" type="phone" name="numeroUsuario" required>
+            </div>  
         </div>
 
-        <div>
-            <label for="endereçoUsuario">Endereço:</label>
-            <input type="text" name="endereçoUsuario">
+        <div class="mb-3">
+            <label class="form-label for="endereçoUsuario">Endereço:</label>
+
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-broadcast"></i></span>
+                <input class="form-control" type="text" name="endereçoUsuario" required>
+            </div>
+            
         </div>
 
-        <div>
-            <label for="emailUsuario">Email:</label>
-            <input type="email" name="emailUsuario">
+        <div class="mb-3">
+            <label class="form-label for="emailUsuario">Email:</label>
+
+            <div class="input-group">
+                <span class="input-group-text">@</span>
+                <input class="form-control" type="email" name="emailUsuario" required>
+            </div>
+            
         </div>
 
-        <div>
-            <input type="submit" value = "Adicionar" name="btnAdicionar">
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value = "Adicionar" name="btnAdicionar">
+            <a href="?menuop=usuario" class="btn btn-dark">Voltar</a>
         </div>
 
     </form>

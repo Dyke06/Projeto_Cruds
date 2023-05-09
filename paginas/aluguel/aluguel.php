@@ -38,6 +38,12 @@
                     print "</tr>";
                 
                 while($row = $rs ->fetch_object()){
+
+                    $sql1 = "SELECT * FROM tbLivro";
+                    $rs1 = $conexao -> query($sql1);
+                    $row1 = $rs1 -> fetch_object();
+                    
+
                     print "<tr>";
                     print "<td>".$row -> idAluguel."</td>";
                     print "<td>" .$row -> livroAluguel."</td>";
