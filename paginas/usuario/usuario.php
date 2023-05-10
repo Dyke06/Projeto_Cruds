@@ -13,7 +13,7 @@
 <header>
     <div class="alinhar">
         <div class="titu">
-            <h3><i class="bi bi-person-circle"></i>Usuario</h3>
+            <h3><i class="bi bi-person-circle"></i> Usuario</h3>
         </div>   
 
         <div class="link">

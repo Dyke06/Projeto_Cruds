@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Login - Livraria</title>
 </head>
-<body class="bg-secondary">
+<body class="bg-white">
     <div class="container">
         <div class="row vh-100 align-items-center justify-content-center">
             <div class="col-10 col-sm-8 col-md-6 col-lg-4 p-4 bg-white shadow rounded">

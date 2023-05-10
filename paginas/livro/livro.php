@@ -14,7 +14,7 @@
 <header>
     <div class="alinhar">
         <div class="titu">
-            <h3><i class="bi bi-book-fill"></i></i>Livros</h3>
+            <h3><i class="bi bi-book-fill"></i></i> Livros</h3>
         </div>   
 
         <div class="link">

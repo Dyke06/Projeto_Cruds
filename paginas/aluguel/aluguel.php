@@ -12,7 +12,7 @@
 <header>
     <div class="alinhar">
         <div class="titu">
-            <h3><i class="bi bi-bookmark-fill"></i></i>Aluguel</h3>
+            <h3><i class="bi bi-bookmark-fill"></i></i> Aluguel</h3>
         </div>   
 
         <div class="link">

@@ -3,26 +3,32 @@
     $nomeAluguel = $_POST["nomeAluguel"]; 
     $dataAluguel = $_POST["dataAluguel"]; 
     $devolucaoAluguel =  $_POST["devolucaoAluguel"]; 
-    $sql = "INSERT INTO tbaluguel(
-    livroAluguel, 
-    nomeAluguel,
-    dataAluguel,  
-    devolucaoAluguel)
-    VALUES(
-        '{$livroAluguel}', 
-        '{$nomeAluguel}',  
-        '{$dataAluguel}',   
-        '{$devolucaoAluguel}'
-    )
-    ";
+
+    $sql = "SELECT * FROM tblivro";
     $rs = $conexao -> query($sql);
     
-    if($rs==true){
-        print "<script>alert('Cadastro com sucesso');</script>";
-        print "<script>location.href='?menuop=aluguel';</script>";
+        while($row = $rs -> fetch_object()){
+            if($livroAluguel == $row -> nomeLivro){
+                $sql = "INSERT INTO tbaluguel(
+                    livroAluguel, 
+                    nomeAluguel,
+                    dataAluguel,  
+                    devolucaoAluguel)
+                    VALUES(
+                        '{$livroAluguel}', 
+                        '{$nomeAluguel}',  
+                        '{$dataAluguel}',   
+                        '{$devolucaoAluguel}'
+                    )
+                    ";
+                    $rs = $conexao -> query($sql);
+                     
+                    print "<script>alert('Cadastro com sucesso');</script>";
+                    print "<script>location.href='?menuop=aluguel';</script>";
+                                        
+        }
     }
-    else{
-        print "<script>alert('Erro ao cadastrar o usuário.');</script>";
-        print "<script>location.href='?menuop=aluguel';</script>";
-    }
+    print "<script>alert('Livro não encontrado.');</script>";
+    print "<script>location.href='?menuop=aluguel';</script>";
+    
 ?>
