@@ -1,5 +1,27 @@
 <?php
-    include("db/conexao.php")
+    include("db/conexao.php");
+    session_start();
+    if(isset($_SESSION["emailLogin"]) and isset($_SESSION["senhaLogin"])){
+        $emailLogin = $_SESSION["emailLogin"]; 
+        $senhaLogin = $_SESSION["senhaLogin"]; 
+        $nomeLogin = $_SESSION["nomeLogin"]; 
+
+        $sql = "SELECT * FROM userlogin WHERE emailLogin = '{$emailLogin}' and senhaLogin ='{$senhaLogin}'";
+        $rs = mysqli_query($conexao, $sql);
+        $dados = mysqli_fetch_assoc($rs);
+        $linha = mysqli_num_rows($rs);
+
+        if($linha == 0){
+            session_unset();
+            session_destroy();
+            header('Location: login.php');
+            exit();
+        }
+
+    }else{
+        header('Location: login.php');
+            exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +50,12 @@
                         <li class="nav-item"><a class="nav-link" href="?menuop=livro">Livros</a> </li> 
                         <li class="nav-item"><a class="nav-link" href="?menuop=aluguel">Aluguel</a> </li> 
                     </ul>
+                    <div class="navbar-nav w-100 justify-content-end">
+                        <a href="logaut.php" class="nav-link">
+                            <i class="bi bi-person"></i>
+                            <?=$nomeLogin?> Sair <i class="bi bi-box-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </nav>
         </div>
