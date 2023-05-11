@@ -13,10 +13,8 @@ nav a h3{
     text-decoration: none;
 }
 
-
-
 .nav-link{
-    color: rgb(160, 158, 158);
+    color: rgb(255, 255, 255);
     
 }
 
@@ -26,3 +24,5 @@ nav a h3{
     transition: 0.5s;
     color: rgb(243, 242, 242);
 }
+
+

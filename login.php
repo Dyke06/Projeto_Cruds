@@ -3,29 +3,39 @@
 
     //verificação banco de dados
 
-    $ms_error = "";
+    if(isset($_POST["emailLogin"]) || isset($_POST["senhaLogin"])){
 
-    if(isset($_POST["emailLogin"]) && isset($_POST["senhaLogin"])){
-        $emailLogin = $_POST["emailLogin"]; 
-        $senhaLogin = $_POST["senhaLogin"];
-        
-        $sql = "SELECT * FROM userlogin WHERE emailLogin = '{$emailLogin}' and senhaLogin ='{$senhaLogin}'";
-        $rs = mysqli_query($conexao, $sql);
-        $dados = mysqli_fetch_assoc($rs);
-        $linha = mysqli_num_rows($rs);
-
-        if($linha != 0){
-            session_start();
-            $_SESSION["emailLogin"] = $emailLogin; 
-            $_SESSION["senhaLogin"] = $senhaLogin; 
-            $_SESSION["nomeLogin"] = $dados["nomeLogin"];
-            
-            header('location: index.php');
-
+        if(strlen($_POST["emailLogin"]) == 0){
+            echo "preencha";
+        }elseif(strlen($_POST["senhaLogin"]) == 0){
+            echo "preencha";
         }else{
-            print "<script>alert('Email ou Senha incorretas.');</script>";
+
+            $emailLogin = $_POST['emailLogin'];
+            $senhaLogin = $_POST['senhaLogin'];
+
+            $sql = "SELECT * FROM userlogin WHERE emailLogin = '$emailLogin' AND senhaLogin = '$senhaLogin'";
+            $rs = $conexao->query($sql) or die("Falha na execução");
+
+            $quantidade = $rs -> num_rows;
+
+            if($quantidade != 0){
+                $usuario = $rs -> fetch_assoc();
+
+                if(!isset($_SESSION)){
+                    session_start();
+                }
+
+                $_SESSION['idLogin'] = $usuario['idLogin'];
+
+                header("Location: index.php");
+
+            }else{
+                echo "<script>alert('Email ou Senha errado.');</script>";
+                echo "<script>location.href='?menuop=usuario';</script>";
+            }
         }
-    }
+    }  
 
 
 ?>
@@ -40,14 +50,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body{
+            background-color: white;
+        }
+    </style>
     <title>Login - Livraria</title>
 </head>
-<body class="bg-white">
+<body class="">
     <div class="container">
         <div class="row vh-100 align-items-center justify-content-center">
             <div class="col-10 col-sm-8 col-md-6 col-lg-4 p-4 bg-white shadow rounded">
                 <div class="row justify-content-center mb-4">
-                    <h1>Login</h1>
+                    <center><h1>Login</h1></center>
                 </div>
 
                 <form action="login.php" class="needs-validation" method="POST" novalidate>
@@ -72,7 +87,7 @@
                             </div>
                         </div>                        
                     </div>
-                    <button class="btn btn-outline-success w-100 mb-3"><i class="bi bi-box-arrow-in-left"></i> Entrar</button>
+                    <button class="btn btn-outline-primary w-100 mb-3"><i class="bi bi-box-arrow-in-left"></i> Entrar</button>
                 </form>
             </div>
 

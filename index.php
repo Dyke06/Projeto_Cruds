@@ -1,27 +1,6 @@
 <?php
     include("db/conexao.php");
-    session_start();
-    if(isset($_SESSION["emailLogin"]) and isset($_SESSION["senhaLogin"])){
-        $emailLogin = $_SESSION["emailLogin"]; 
-        $senhaLogin = $_SESSION["senhaLogin"]; 
-        $nomeLogin = $_SESSION["nomeLogin"]; 
-
-        $sql = "SELECT * FROM userlogin WHERE emailLogin = '{$emailLogin}' and senhaLogin ='{$senhaLogin}'";
-        $rs = mysqli_query($conexao, $sql);
-        $dados = mysqli_fetch_assoc($rs);
-        $linha = mysqli_num_rows($rs);
-
-        if($linha == 0){
-            session_unset();
-            session_destroy();
-            header('Location: login.php');
-            exit();
-        }
-
-    }else{
-        header('Location: login.php');
-            exit();
-    }
+    include('protect.php');
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +12,41 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        ul li{
+            margin-left: 25px;
+            width: 100px;
+        }
+
+        
+        body{
+            background-color: #fff;
+            
+        }
+
+        nav a h3{
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        .nav-link{
+            color: rgb(255, 255, 255);
+            
+        }
+
+        .nav-link:hover{
+            border-radius: 20px;
+            background-color: rgb(31, 89, 197);
+            transition: 0.5s;
+            color: rgb(243, 242, 242);
+            font-weight: bold;
+        }
+
+    </style>
     <title>Sistemas - Livros 1.1</title>
 </head>
 <body>
-    <header class="bg-dark">
+    <header class="bg-primary">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark ">
                 <a href="#" class="navbar-brand">
@@ -44,16 +54,16 @@
                 </a>            
                 <div class="collapse navbar-collapse" id="conteudoNavBar">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="?menuop=home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?menuop=usuario">Usuario</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?menuop=editora">Editora</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?menuop=livro">Livros</a> </li> 
-                        <li class="nav-item"><a class="nav-link" href="?menuop=aluguel">Aluguel</a> </li> 
+                        <li class="nav-item active"><a class="nav-link" href="?menuop=home"><i class="bi bi-house"></i> Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?menuop=usuario"><i class="bi bi-person"></i> Usuario</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?menuop=editora"><i class="bi bi-archive"></i> Editora</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?menuop=livro"><i class="bi bi-book-fill"></i> Livros</a> </li> 
+                        <li class="nav-item"><a class="nav-link" href="?menuop=aluguel"> <i class="bi bi-calendar-check"></i> Aluguel</a> </li> 
                     </ul>
                     <div class="navbar-nav w-100 justify-content-end">
                         <a href="logaut.php" class="nav-link">
                             <i class="bi bi-person"></i>
-                            <?=$nomeLogin?> Sair <i class="bi bi-box-arrow-right"></i>
+                             Sair <i class="bi bi-box-arrow-right"></i>
                         </a>
                     </div>
                 </div>

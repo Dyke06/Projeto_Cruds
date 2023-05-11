@@ -25,10 +25,10 @@
                      
                     print "<script>alert('Cadastro com sucesso');</script>";
                     print "<script>location.href='?menuop=aluguel';</script>";
-                                        
+                               
         }
     }
-    print "<script>alert('Livro não encontrado.');</script>";
+    print "<script>alert('Livro ou usuário não encontrado.');</script>";
     print "<script>location.href='?menuop=aluguel';</script>";
     
 ?>
