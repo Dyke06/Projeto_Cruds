@@ -4,28 +4,30 @@
     //verificação banco de dados
 
     if(isset($_POST["emailLogin"]) || isset($_POST["senhaLogin"])){
-
+        //validação - se foi preenchido em branco
         if(strlen($_POST["emailLogin"]) == 0){
             echo "preencha";
         }elseif(strlen($_POST["senhaLogin"]) == 0){
             echo "preencha";
         }else{
-
+            //recupera email e senha pelo POST
             $emailLogin = $_POST['emailLogin'];
             $senhaLogin = $_POST['senhaLogin'];
-
+            //comando select
             $sql = "SELECT * FROM userlogin WHERE emailLogin = '$emailLogin' AND senhaLogin = '$senhaLogin'";
+            //executa a consulta
             $rs = $conexao->query($sql) or die("Falha na execução");
-
+            //retorna linhas dessa consulta
             $quantidade = $rs -> num_rows;
 
             if($quantidade != 0){
+                //recupera os dados para a variavel
                 $usuario = $rs -> fetch_assoc();
-
+                //criar sessão se nã existir
                 if(!isset($_SESSION)){
                     session_start();
                 }
-
+                //criação da session
                 $_SESSION['idLogin'] = $usuario['idLogin'];
 
                 header("Location: index.php");

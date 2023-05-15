@@ -2,9 +2,11 @@
     <h3>Excluir Usuario</h3>
 </header>
 <?php 
+    //id do registro que vai ser deletado
     $idUsuario = $_GET["idUsuario"];
+    //comando que deleta os campos
     $sql = "DELETE FROM tbusuario WHERE idUsuario= '{$idUsuario}'";
-
+    //executa o comando
     $rs = $conexao -> query($sql);
 
     if($rs==true){

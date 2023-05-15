@@ -4,6 +4,7 @@
 
 
 <div>
+    <!-- Formulário de cadastro com o POST -->
     <form action="?menuop=inserir-usuario" method="POST">
         <div class="mb-3">
             <label class="form-label" for="nomeUsuario">Nome:</label>

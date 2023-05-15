@@ -1,6 +1,9 @@
 <?php 
+//recupera o id do registro que quer editar
 $idUsuario = $_GET["idUsuario"];
+//listar os dados do id recuperado
 $sql = "SELECT * FROM tbusuario WHERE idUsuario= {$idUsuario}";
+//executa a consulta
 $rs = $conexao -> query($sql);
 $dados = $rs -> fetch_assoc();
 ?>
@@ -10,6 +13,7 @@ $dados = $rs -> fetch_assoc();
 </header>
 
 <div>
+    <!-- Form com os campos especificados -->
     <form action="index.php?menuop=atualizar-usuario" method="POST">
         <div class="mb-3 col-7">
             <label class="form-label" for="idUsuario"></label>

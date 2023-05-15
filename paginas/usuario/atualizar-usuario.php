@@ -3,13 +3,14 @@
 </header>
 
 <?php 
+    //Recupera os dados pelo POST
     $idUsuario = $_POST["idUsuario"];
     $nomeUsuario = $_POST["nomeUsuario"]; 
     $cidadeUsuario = $_POST["cidadeUsuario"]; 
     $numeroUsuario = $_POST["numeroUsuario"]; 
     $endereçoUsuario =  $_POST["endereçoUsuario"]; 
     $emailUsuario = $_POST["emailUsuario"]; 
-
+    //comando para atualizar os dados
     $sql = "UPDATE tbusuario SET 
     nomeUsuario = '{$nomeUsuario}', 
     cidadeUsuario = '{$cidadeUsuario}', 
@@ -18,7 +19,7 @@
     emailUsuario = '{$emailUsuario}'
     WHERE idUsuario = '{$idUsuario}'
     ";
-
+    //executa o comando
     $rs = $conexao -> query($sql);
 
     if($rs==true){

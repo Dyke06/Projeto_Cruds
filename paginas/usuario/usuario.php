@@ -45,11 +45,13 @@
 </header>
 
         <?php 
+            //recebe a valor da pesquisa
             $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
-
+            //comando sql que lista tida a tabela
             $sql = "SELECT * FROM tbusuario where idUsuario = '{$txt_pesquisa}' or nomeUsuario LIKE '%{$txt_pesquisa}%'";
-
+            //variavel que executa a consulta
             $rs = $conexao -> query($sql);
+            //condição que analisa as linhas da tabela
             $qtd = $rs ->num_rows;
 
             if($qtd > 0){
@@ -63,7 +65,7 @@
                     print "<th>Email</th>";
                     print "<th>Ações</th>";
                     print "</tr>";
-                
+                //listar as linhas 
                 while($row = $rs ->fetch_object()){
                     print "<tr>";
                     print "<td>".$row -> idUsuario."</td>";

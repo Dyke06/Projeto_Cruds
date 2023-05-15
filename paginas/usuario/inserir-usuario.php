@@ -1,10 +1,12 @@
 
 <?php 
+    //Recupera os valores do form pelo POST
     $nomeUsuario = $_POST["nomeUsuario"]; 
     $cidadeUsuario = $_POST["cidadeUsuario"]; 
     $numeroUsuario = $_POST["numeroUsuario"]; 
     $endereçoUsuario =  $_POST["endereçoUsuario"]; 
     $emailUsuario = $_POST["emailUsuario"]; 
+    //comando que insere os valores na tabela
     $sql = "INSERT INTO tbusuario(
     nomeUsuario, 
     cidadeUsuario,
@@ -19,6 +21,7 @@
         '{$emailUsuario}'
     )
     ";
+    //variavel que executa a consulta
     $rs = $conexao -> query($sql);
     
     if($rs==true){

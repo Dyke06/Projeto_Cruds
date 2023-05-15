@@ -73,6 +73,7 @@
     <main>
         <div class="container">
         <?php 
+            //área de paginação
             switch(@$_REQUEST["menuop"]){
                 case 'home':
                     include("paginas/home/home.php");
