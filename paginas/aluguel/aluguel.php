@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css1/usuario.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style> 
+
+        .alinhar{
+            width: 2000px;
+        }
+           
+        .pesquisa{
+            margin-left: 500px;
+        }
+
+        .form{
+            border-radius:5px;
+            padding: 5px;
+        }
+    </style>
     <title>Document</title>
 </head>
 <body>
@@ -18,11 +33,20 @@
         <div class="link">
             <a href="index.php?menuop=cad-aluguel" class="botao">Novo Aluguel +</a>
         </div>
+
+        <div class="pesquisa"> 
+            <form action="index.php?menuop=aluguel" method="POST">
+                <input class="form" type="text" placeholder="Pesquisa" name="txt_pesquisa" id="">
+                <input class="btn btn-success" type="submit" value="pesquisar" id="">
+            </form> 
+        </div>
     </div>    
 </header>
 
 <?php 
-            $sql = "SELECT * FROM tbaluguel";
+            $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
+
+            $sql = "SELECT * FROM tbaluguel where idAluguel = '{$txt_pesquisa}' or nomeAluguel = '{$txt_pesquisa}' or livroAluguel LIKE '%{$txt_pesquisa}%'";
             $rs = $conexao -> query($sql);
             $qtd = $rs ->num_rows;
 
@@ -37,13 +61,7 @@
                     print "<th>Ações</th>";
                     print "</tr>";
                 
-                while($row = $rs ->fetch_object()){
-
-                    $sql1 = "SELECT * FROM tbLivro";
-                    $rs1 = $conexao -> query($sql1);
-                    $row1 = $rs1 -> fetch_object();
-                    
-
+                while($row = $rs ->fetch_object()){      
                     print "<tr>";
                     print "<td>".$row -> idAluguel."</td>";
                     print "<td>" .$row -> livroAluguel."</td>";

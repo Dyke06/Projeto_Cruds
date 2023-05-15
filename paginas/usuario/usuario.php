@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css1/usuario.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+
+        .alinhar{
+            width: 2000px;
+        }
+
+        .pesquisa{
+            margin-left: 500px;
+        }
+
+        .form{
+            border-radius:5px;
+            padding: 5px;
+        }
+    </style>
     <title>Usuario</title>
 </head>
 <body>
@@ -19,11 +34,21 @@
         <div class="link">
             <a href="index.php?menuop=cad-usuario" class="botao">Novo Usuario +</a>
         </div>
+
+        <div class="pesquisa col-400"> 
+            <form action="index.php?menuop=usuario" method="POST">
+                <input class="form" type="text" placeholder="Pesquisa" name="txt_pesquisa" id="">
+                <input class="btn btn-success" type="submit" value="pesquisar" id="">
+            </form> 
+        </div>
     </div>    
 </header>
 
         <?php 
-            $sql = "SELECT * FROM tbusuario";
+            $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
+
+            $sql = "SELECT * FROM tbusuario where idUsuario = '{$txt_pesquisa}' or nomeUsuario LIKE '%{$txt_pesquisa}%'";
+
             $rs = $conexao -> query($sql);
             $qtd = $rs ->num_rows;
 

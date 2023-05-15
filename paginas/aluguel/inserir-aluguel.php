@@ -21,7 +21,15 @@
                         '{$devolucaoAluguel}'
                     )
                     ";
+
+                    
+
                     $rs = $conexao -> query($sql);
+
+                    $update = "UPDATE tblivro SET estoqueLivro = estoqueLivro - 1 WHERE nomeLivro = '{$livroAluguel}'";
+                    $rs2 = $conexao -> query($update);
+                
+                    
                      
                     print "<script>alert('Cadastro com sucesso');</script>";
                     print "<script>location.href='?menuop=aluguel';</script>";

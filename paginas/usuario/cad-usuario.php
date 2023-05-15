@@ -10,7 +10,7 @@
 
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
-                <input class="form-control" type="text" name="nomeUsuario" placeholder="Nome" required>
+                <input class="form-control" type="text" name="nomeUsuario"  required>
             </div>
             
         </div>
