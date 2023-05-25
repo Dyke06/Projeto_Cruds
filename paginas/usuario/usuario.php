@@ -9,11 +9,11 @@
     <style>
 
         .alinhar{
-            width: 2000px;
+            width: 100%;
         }
 
         .pesquisa{
-            margin-left: 500px;
+            margin-top: 10px;
         }
 
         .form{
@@ -34,14 +34,13 @@
         <div class="link">
             <a href="index.php?menuop=cad-usuario" class="botao">Novo Usuario +</a>
         </div>
-
-        <div class="pesquisa col-400"> 
+    </div>    
+    <div class="pesquisa col-400"> 
             <form action="index.php?menuop=usuario" method="POST">
                 <input class="form" type="text" placeholder="Pesquisa" name="txt_pesquisa" id="">
                 <input class="btn btn-success" type="submit" value="pesquisar" id="">
             </form> 
         </div>
-    </div>    
 </header>
 
         <?php 
