@@ -9,11 +9,19 @@
     <style> 
 
         .alinhar{
-            width: 2000px;
+            width: 100%;
         }
-           
+
+        .link a{
+            text-align: justify;
+            
+        }
+         
         .pesquisa{
-            margin-left: 500px;
+            position: relative;
+            top: 10px;
+            left: -5px;
+            
         }
 
         .form{
@@ -32,15 +40,19 @@
 
         <div class="link">
             <a href="index.php?menuop=cad-editora" class="botao">Nova Editora +</a>
-        </div>
-
-        <div class="pesquisa"> 
+        </div>   
+    </div>   
+    
+    <div class="pesquisa"> 
             <form action="index.php?menuop=editora" method="POST">
-                <input class="form" type="text" placeholder="Pesquisa" name="txt_pesquisa" id="">
-                <input class="btn btn-success" type="submit" value="pesquisar" id="">
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" placeholder="Pesquisa" name="txt_pesquisa" id="">
+                    <button class="btn btn-success btn-sm" type="submit"><i class="bi bi-send-fill"></i> Pesquisar</button>
+ 
+                </div>
+                
             </form> 
         </div>
-    </div>    
 </header>
 
 <?php 
