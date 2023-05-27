@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style> 
 
-        .alinhar{
-            width: 2000px;
-        }
            
         .pesquisa{
-            margin-left: 500px;
+            position: relative;
+            top: 10px;
+            left: -5px;
         }
 
         .form{
@@ -33,14 +32,16 @@
         <div class="link">
             <a href="index.php?menuop=cad-aluguel" class="botao">Novo Aluguel +</a>
         </div>
-
-        <div class="pesquisa"> 
+    </div>    
+    <div class="pesquisa"> 
             <form action="index.php?menuop=aluguel" method="POST">
-                <input class="form" type="text" placeholder="Pesquisa" name="txt_pesquisa" id="">
-                <input class="btn btn-success" type="submit" value="pesquisar" id="">
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" placeholder="Pesquisa" name="txt_pesquisa" id="">
+                    <button class="btn btn-success btn-sm" type="submit" value="pesquisar" id=""><i class="bi bi-send-fill"></i> Pesquisar </button>
+                </div>
+                
             </form> 
         </div>
-    </div>    
 </header>
 
 <?php 
@@ -58,7 +59,8 @@
                     print "<th>Usuario</th>"; 
                     print "<th>Data do aluguel</th>"; 
                     print "<th>Previsão de devolução</th>";
-                    print "<th>Ações</th>";
+                    print "<th>Status da devolução</th>"; 
+                    print "<th>Ações</th>"; 
                     print "</tr>";
                 
                 while($row = $rs ->fetch_object()){      
@@ -67,9 +69,10 @@
                     print "<td>" .$row -> livroAluguel."</td>";
                     print "<td>" .$row -> nomeAluguel."</td>"; 
                     print "<td>" .$row -> dataAluguel."</td>"; 
-                    print "<td>" .$row -> devolucaoAluguel."</td>"; 
+                    print "<td>" .$row -> devolucaoAluguel."</td>";  
+                    print "<td> Aguardando </td>";  
                     print "<td>
-                            <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-aluguel&idAluguel=".$row -> idAluguel."';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a> 
+                            <a onclick=\"if(confirm('Tem certeza de que deseja devolver esse livro?')){location.href='?menuop=excluir-aluguel&idAluguel=".$row -> idAluguel."';} else{false;}\" class='btn btn-warning btn-sm'><i class='bi bi-journal-bookmark'></i></a> 
                     </td>"; 
                     print "</tr>";
                 }

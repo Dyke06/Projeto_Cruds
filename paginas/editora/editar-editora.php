@@ -40,6 +40,7 @@ $dados = $rs -> fetch_assoc();
 
         <div class="mb-3">
             <input class="btn btn-primary" type="submit" value = "Atualizar" name="btnAtualizar">
+            <a href="?menuop=editora" class="btn btn-dark">Voltar</a>
         </div>
 
     </form>

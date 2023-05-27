@@ -1,4 +1,4 @@
-<header>
+<header class="mt-3">
     <h3>Cadastro de Editoras</h3>
 </header>
 
@@ -47,6 +47,7 @@
 
         <div class="mb-3">
             <input class="btn btn-primary"  type="submit" value = "Adicionar" name="btnAdicionar">
+            <a href="?menuop=editora" class="btn btn-dark">Voltar</a>
         </div>
 
     </form>

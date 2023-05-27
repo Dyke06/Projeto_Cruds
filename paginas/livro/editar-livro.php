@@ -43,6 +43,7 @@ $dados = $rs -> fetch_assoc();
 
         <div>
             <input class="btn btn-primary" type="submit" value = "Atualizar" name="btnAtualizar">
+            <a href="?menuop=livro" class="btn btn-dark">Voltar</a>
         </div>
 
     </form>

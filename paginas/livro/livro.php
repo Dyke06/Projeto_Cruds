@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style> 
 
-        .alinhar{
-            width: 2000px;
-        }
            
         .pesquisa{
-            margin-left: 500px;
+            position: relative;
+            top: 10px;
+            left: -5px;
         }
 
         .form{
@@ -35,14 +34,16 @@
         <div class="link">
             <a href="index.php?menuop=cad-livro" class="botao">Novo Livro +</a>
         </div>
+    </div>    
 
-        <div class="pesquisa"> 
+    <div class="pesquisa"> 
             <form action="index.php?menuop=livro" method="POST">
-                <input class="form" type="text" placeholder="Pesquisa" name="txt_pesquisa" id="">
-                <input class="btn btn-success" type="submit" value="pesquisar" id="">
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" placeholder="Pesquisa" name="txt_pesquisa" id="">
+                    <button class="btn btn-success btn-sm" type="submit" value="pesquisar" id=""><i class="bi bi-send-fill"></i> Pesquisar</button>
+                </div>   
             </form> 
         </div>
-    </div>    
 </header>
 
         <?php 
