@@ -26,6 +26,7 @@ if( $Pdevolucao >= $Ddevolucao and $Pdevolucao >= $data){
     
 }else{
     print "<script>alert('erro');</script>";
+    
 }
 
 

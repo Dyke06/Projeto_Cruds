@@ -78,7 +78,7 @@
                     }else{
                         print "<td>" .$row -> statusAluguel. " - " .date("Y-m-d"); "</td>";  
                         print "<td>
-                            <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse livro?')){location.href='?menuop=excluir-aluguel&idAluguel=".$row -> idAluguel."';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-journal-bookmark'></i></a> 
+                            <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-aluguel&idAluguel=".$row -> idAluguel."';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-trash-fill'></i></a> 
                     </td>";
                     }
                     print "</tr>";
