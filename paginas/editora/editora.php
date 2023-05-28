@@ -63,7 +63,7 @@
                 print "<table class='table table-hover table-striped table-bordered'>";
                 print "<tr class='table-dark'>";
                     print "<th>#</th>";
-                    print "<th>Nome</th>";
+                    print "<th>Editora</th>";
                     print "<th>Email</th>"; 
                     print "<th>Telefone</th>"; 
                     print "<th>Site</th>"; 

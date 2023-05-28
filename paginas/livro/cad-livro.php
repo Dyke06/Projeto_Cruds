@@ -6,7 +6,7 @@
 <div>
     <form action="?menuop=inserir-livro" method="POST">
         <div class="mb-3">
-            <label class="form-label" for="nomeLivro">Nome:</label>
+            <label class="form-label" for="nomeLivro">Livro:</label>
 
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-book"></i></span>
@@ -30,7 +30,16 @@
 
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-collection-play-fill"></i></span>
-                <input class="form-control" type="text" name="editoraLivro" required>
+                <select class="form-control" name="editoraLivro">
+                    <option selected></option>
+                    <?php 
+                        $sql = "SELECT nomeEditora FROM tbeditora where idEditora >= 1";
+                        $rs = $conexao -> query($sql); 
+                        while($row = $rs -> fetch_assoc()){
+                            echo "<option>".$row['nomeEditora']."</option>";
+                        }
+                    ?>
+                </select>
             </div>
             
         </div>

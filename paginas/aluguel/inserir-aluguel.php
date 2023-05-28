@@ -3,22 +3,24 @@
     $nomeAluguel = $_POST["nomeAluguel"]; 
     $dataAluguel = $_POST["dataAluguel"]; 
     $devolucaoAluguel =  $_POST["devolucaoAluguel"]; 
+    $statusAluguel = "Não devolvido";
 
     $sql = "SELECT * FROM tblivro";
     $rs = $conexao -> query($sql);
-        //Repetição para compara dois campos
         while($row = $rs -> fetch_object()){
-            if($livroAluguel == $row -> nomeLivro){
+            if($livroAluguel == $row -> nomeLivro and $row->estoqueLivro > 0){
                 $sql = "INSERT INTO tbaluguel(
                     livroAluguel, 
                     nomeAluguel,
                     dataAluguel,  
-                    devolucaoAluguel)
+                    devolucaoAluguel,
+                    statusAluguel)
                     VALUES(
                         '{$livroAluguel}', 
                         '{$nomeAluguel}',  
                         '{$dataAluguel}',   
-                        '{$devolucaoAluguel}'
+                        '{$devolucaoAluguel}', 
+                        '{$statusAluguel}' 
                     )
                     ";
 
@@ -27,12 +29,12 @@
                     $update = "UPDATE tblivro SET estoqueLivro = estoqueLivro - 1 WHERE nomeLivro = '{$livroAluguel}'";
                     $rs2 = $conexao -> query($update);
           
-                    print "<script>alert('Cadastro com sucesso');</script>";
+                    print "<script>alert('Livro alugado com sucesso');</script>";
                     print "<script>location.href='?menuop=aluguel';</script>";
                                
         }
     }
-    print "<script>alert('Livro ou usuário não encontrado.');</script>";
+    print "<script>alert('Livro esgotado.');</script>";
     print "<script>location.href='?menuop=aluguel';</script>";
     
 ?>

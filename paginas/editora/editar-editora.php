@@ -19,7 +19,7 @@ $dados = $rs -> fetch_assoc();
         </div>
 
         <div class="mb-3 col-7">
-            <label class="form-label" for="nomeEditora">Nome:</label>
+            <label class="form-label" for="nomeEditora">Editora:</label>
             <input class="form-control" type="text" name="nomeEditora" value="<?=$dados["nomeEditora"]?>">
         </div>
 

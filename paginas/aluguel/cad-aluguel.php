@@ -10,7 +10,16 @@
 
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-book"></i></span>
-                <input class="form-control" type="text" name="livroAluguel" required>
+                <select class="form-control" name="livroAluguel">
+                    <option selected></option>
+                    <?php 
+                        $sql = "SELECT nomeLivro FROM tblivro where idLivro >= 1";
+                        $rs = $conexao -> query($sql); 
+                        while($row = $rs -> fetch_assoc()){
+                            echo "<option>".$row['nomeLivro']."</option>";
+                        }
+                    ?>
+                </select>
             </div>
             
         </div>
@@ -20,7 +29,16 @@
 
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
-                <input class="form-control" type="text" name="nomeAluguel" required>
+                <select class="form-control" name="nomeAluguel">
+                    <option selected></option>
+                    <?php 
+                        $sql = "SELECT nomeUsuario FROM tbusuario where idUsuario >= 1";
+                        $rs = $conexao -> query($sql); 
+                        while($row = $rs -> fetch_assoc()){
+                            echo "<option>".$row['nomeUsuario']."</option>";
+                        }
+                    ?>
+                </select>
             </div>
             
         </div>

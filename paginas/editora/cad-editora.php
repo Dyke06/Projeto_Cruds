@@ -6,7 +6,7 @@
 <div>
     <form action="?menuop=inserir-editora" method="POST">
         <div class="mb-3">
-            <label class="form-label" for="nomeEditora">Nome:</label>
+            <label class="form-label" for="nomeEditora">Editora:</label>
 
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person-circle"></i></span>

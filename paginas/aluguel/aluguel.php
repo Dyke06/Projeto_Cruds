@@ -69,11 +69,18 @@
                     print "<td>" .$row -> livroAluguel."</td>";
                     print "<td>" .$row -> nomeAluguel."</td>"; 
                     print "<td>" .$row -> dataAluguel."</td>"; 
-                    print "<td>" .$row -> devolucaoAluguel."</td>";  
-                    print "<td> Aguardando </td>";  
-                    print "<td>
-                            <a onclick=\"if(confirm('Tem certeza de que deseja devolver esse livro?')){location.href='?menuop=excluir-aluguel&idAluguel=".$row -> idAluguel."';} else{false;}\" class='btn btn-warning btn-sm'><i class='bi bi-journal-bookmark'></i></a> 
-                    </td>"; 
+                    print "<td>" .$row -> devolucaoAluguel."</td>";
+                    if($row -> statusAluguel == "Não devolvido"){  
+                        print "<td>" .$row -> statusAluguel. "</td>";  
+                        print "<td>
+                            <a onclick=\"if(confirm('Tem certeza de que deseja devolver esse livro?')){location.href='?menuop=devolver-aluguel&idAluguel=".$row -> idAluguel."';} else{false;}\" class='btn btn-warning btn-sm'><i class='bi bi-journal-bookmark'></i></a> 
+                        </td>";
+                    }else{
+                        print "<td>" .$row -> statusAluguel. " - " .date("Y-m-d"); "</td>";  
+                        print "<td>
+                            <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse livro?')){location.href='?menuop=excluir-aluguel&idAluguel=".$row -> idAluguel."';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-journal-bookmark'></i></a> 
+                    </td>";
+                    }
                     print "</tr>";
                 }
                 print "</table>";

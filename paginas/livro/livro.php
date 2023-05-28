@@ -58,7 +58,7 @@
                 print "<table class='table table-hover table-striped table-bordered'>";
                 print "<tr class='table-dark'>";
                     print "<th>#</th>";
-                    print "<th>Nome</th>";
+                    print "<th>Livro</th>";
                     print "<th>Autor</th>"; 
                     print "<th>Editora</th>"; 
                     print "<th>Data de lançameto</th>";

@@ -182,6 +182,10 @@
                         include("paginas/aluguel/excluir-aluguel.php");
                         break;
 
+                    case 'devolver-aluguel':
+                        include("paginas/aluguel/devolver-aluguel.php");
+                        break;   
+
                     default:
                         include("paginas/home/home.php");
                         break;

@@ -17,7 +17,7 @@ $dados = $rs -> fetch_assoc();
         </div>
 
         <div class="mb-3 col-7">
-            <label class="form-label" for="nomeLivro">Nome:</label>
+            <label class="form-label" for="nomeLivro">Livro:</label>
             <input class="form-control" type="text" name="nomeLivro" value="<?=$dados["nomeLivro"]?>">
         </div>
 
@@ -28,7 +28,17 @@ $dados = $rs -> fetch_assoc();
 
         <div class="mb-3 col-7">
             <label class="form-label" for="editoraLivro">Editora:</label>
-            <input class="form-control" type="text" name="editoraLivro" value="<?=$dados["editoraLivro"]?>">
+            
+            <select class="form-control" name="editoraLivro">
+                    <option selected><?=$dados["editoraLivro"]?></option>
+                    <?php 
+                        $sql = "SELECT nomeEditora FROM tbeditora where idEditora >= 1";
+                        $rs = $conexao -> query($sql); 
+                        while($row = $rs -> fetch_assoc()){
+                            echo "<option>".$row['nomeEditora']."</option>";
+                        }
+                    ?>
+                </select>
         </div>
 
         <div class="mb-3 col-7">
