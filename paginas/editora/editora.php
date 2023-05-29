@@ -68,7 +68,7 @@
     <?php 
             $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
 
-            $sql = "SELECT * FROM tbeditora where idEditora = '{$txt_pesquisa}' or  nomeEditora LIKE '%{$txt_pesquisa}%'";
+            $sql = "SELECT * FROM tbeditora where idEditora = '{$txt_pesquisa}' or  nomeEditora LIKE '%{$txt_pesquisa}%' or emailEditora LIKE '%{$txt_pesquisa}%' or telefoneEditora LIKE '%{$txt_pesquisa}%' or siteEditora LIKE '%{$txt_pesquisa}%'";
 
             $rs = $conexao -> query($sql);
             $qtd = $rs ->num_rows;

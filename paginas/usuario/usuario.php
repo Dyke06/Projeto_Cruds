@@ -62,7 +62,7 @@
             //recebe a valor da pesquisa
             $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
             //comando sql que lista tida a tabela
-            $sql = "SELECT * FROM tbusuario where idUsuario = '{$txt_pesquisa}' or nomeUsuario LIKE '%{$txt_pesquisa}%'";
+            $sql = "SELECT * FROM tbusuario where idUsuario = '{$txt_pesquisa}' or nomeUsuario LIKE '%{$txt_pesquisa}%' or cidadeUsuario LIKE '%{$txt_pesquisa}%' or numeroUsuario LIKE '%{$txt_pesquisa}%' or endereçoUsuario LIKE '%{$txt_pesquisa}%' or emailUsuario LIKE '%{$txt_pesquisa}%'";
             //variavel que executa a consulta
             $rs = $conexao -> query($sql);
             //condição que analisa as linhas da tabela

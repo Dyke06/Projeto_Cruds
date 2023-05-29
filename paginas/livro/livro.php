@@ -63,7 +63,7 @@
         <?php 
             $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
 
-            $sql = "SELECT * FROM tblivro where idLivro = '{$txt_pesquisa}' or autorLivro = '{$txt_pesquisa}' or nomeLivro LIKE '%{$txt_pesquisa}%'";
+            $sql = "SELECT * FROM tblivro where idLivro = '{$txt_pesquisa}' or autorLivro LIKE '%{$txt_pesquisa}%' or nomeLivro LIKE '%{$txt_pesquisa}%' or editoraLivro LIKE '%{$txt_pesquisa}%' or dataLivro LIKE '%{$txt_pesquisa}%' or estoqueLivro = '{$txt_pesquisa}' or alugadoLivro = '{$txt_pesquisa}'";
 
             $rs = $conexao -> query($sql);
             $qtd = $rs ->num_rows;
