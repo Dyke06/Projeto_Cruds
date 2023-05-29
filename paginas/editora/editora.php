@@ -24,6 +24,20 @@
             border-radius:5px;
             padding: 5px;
         }
+
+        /* Tabela Responsiva */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .table thead th {
+            white-space: nowrap;
+        }
     </style>
     <title>Document</title>
 </head>
@@ -50,8 +64,8 @@
             </form> 
         </div>
 </header>
-
-<?php 
+<div class="table-responsive">
+    <?php 
             $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
 
             $sql = "SELECT * FROM tbeditora where idEditora = '{$txt_pesquisa}' or  nomeEditora LIKE '%{$txt_pesquisa}%'";
@@ -89,6 +103,6 @@
                 print "<p>Não encontrou resultado.</p>";
             }
         ?> 
-
+</div>
 </body>
 </html>

@@ -19,6 +19,20 @@
             border-radius:5px;
             padding: 5px;
         }
+
+         /* Tabela Responsiva */
+         .table-responsive {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .table thead th {
+            white-space: nowrap;
+        }
     </style>
     <title>Usuario</title>
 </head>
@@ -43,7 +57,7 @@
             </form> 
         </div>
 </header>
-
+<div class="table-responsive">
         <?php 
             //recebe a valor da pesquisa
             $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
@@ -85,7 +99,8 @@
               }else{
                 print "<p>Não encontrou resultado.</p>";
             }
-        ?>       
-    </body>
+        ?> 
+</div>
+</body>
 </html>
     

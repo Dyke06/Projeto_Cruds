@@ -20,7 +20,7 @@
           <div class="card-body">
             <p class="card-title" style="color:grey;">Ultimo livro alugado</p>
             <h4 class="card-text mb-2" style="color: #478079"> <?php 
-                $sql = "SELECT * FROM tblivro ORDER BY idLivro DESC LIMIT 1";
+                $sql = "SELECT * FROM tbaluguel ORDER BY idAluguel DESC LIMIT 1";
                 $resultado = mysqli_query($conexao, $sql);
 
                 if ($resultado && mysqli_num_rows($resultado) > 0) {
@@ -28,7 +28,7 @@
                   $ultimoRegistro = mysqli_fetch_assoc($resultado);
               
                   // Exibir os dados do último registro
-                  echo "Livro: " . $ultimoRegistro['nomeLivro'] . "<br>";
+                  echo "Livro: " . $ultimoRegistro['livroAluguel'] . "<br>";
               } else {
                   // Exibir mensagem caso não tenha sido encontrado nenhum registro
                   echo "Nenhum registro encontrado.";
@@ -41,17 +41,18 @@
         <div class="col-sm-6">
           <div class="card w-100" style="border:2px solid #056384;">
             <div class="card-body">
-              <p class="card-title" style="color:grey;">Special title treatment</p>
+              <p class="card-title" style="color:grey;">Livro mais alugado</p>
               <h4 class="card-text mb-2" style="color: #478079"><?php 
-                $sql = "SELECT * FROM tblivro ORDER BY idLivro DESC LIMIT 1";
+                $sql = "SELECT livroAluguel, COUNT(livroAluguel) 
+                AS total_repeticoes FROM tbaluguel GROUP BY livroAluguel ORDER BY total_repeticoes DESC LIMIT 1;";
                 $resultado = mysqli_query($conexao, $sql);
 
                 if ($resultado && mysqli_num_rows($resultado) > 0) {
                   // Extrair os dados do último registro
-                  $ultimoRegistro = mysqli_fetch_assoc($resultado);
+                  $Mregistro = mysqli_fetch_assoc($resultado);
               
                   // Exibir os dados do último registro
-                  echo "Livro: " . $ultimoRegistro['nomeLivro'] . "<br>";
+                  echo "Livro: " . $Mregistro['livroAluguel'] . "<br>";
               } else {
                   // Exibir mensagem caso não tenha sido encontrado nenhum registro
                   echo "Nenhum registro encontrado.";
@@ -64,13 +65,13 @@
       </div>
 
       <div class="container">
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row" >
+            <div class="col-md-6 mt-2"style="border: 2px solid blue;">
                 <div class="embed-responsive embed-responsive-16by9">
                     <div id="chart_div1" class="w-100"></div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-2"style="border: 2px solid blue;">
                 <div class="embed-responsive embed-responsive-16by9">
                     <div id="chart_div2" class="w-100"></div>
                 </div>
@@ -113,15 +114,15 @@
             }
 
             // Consulta SQL para obter os dados para o gráfico de linhas
-            $sql2 = "SELECT nomeLivro, estoqueLivro FROM tblivro";
+            $sql2 = "SELECT nomeLivro, alugadoLivro FROM tblivro";
             $result2 = $conexao->query($sql2);
 
             if ($result2->num_rows > 0) {
                 $data2 = array();
-                $data2[] = array('Livro', 'Estoque');
+                $data2[] = array('Livro', 'Aluguel');
 
                 while ($row2 = $result2->fetch_assoc()) {
-                    $data2[] = array($row2['nomeLivro'], (int)$row2['estoqueLivro']);
+                    $data2[] = array($row2['nomeLivro'], (int)$row2['alugadoLivro']);
                 }
 
                 $jsonData2 = json_encode($data2);

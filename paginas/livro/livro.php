@@ -19,6 +19,20 @@
             border-radius:5px;
             padding: 5px;
         }
+
+         /* Tabela Responsiva */
+         .table-responsive {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .table thead th {
+            white-space: nowrap;
+        }
     </style>
 
     <title>Document</title>
@@ -45,7 +59,7 @@
             </form> 
         </div>
 </header>
-
+<div class="table-responsive">
         <?php 
             $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
 
@@ -63,7 +77,8 @@
                     print "<th>Editora</th>"; 
                     print "<th>Data de lançameto</th>";
                     print "<th>Estoque</th>";
-                    print "<th>Ações</th>";
+                    print "<th>Alugados</th>";
+                    print "<th>Ações</th>";              
                     print "</tr>";
                 
                 while($row = $rs ->fetch_object()){
@@ -75,20 +90,21 @@
                     print "<td>" .$row -> editoraLivro."</td>"; 
                     print "<td>" .$row -> dataLivro."</td>";
                     print "<td class=''>" .$row -> estoqueLivro."</td>"; 
+                    print "<td class=''>" .$row -> alugadoLivro."</td>";
                     print "<td>
                             <a onclick=\"location.href='?menuop=editar-livro&idLivro=".$row-> idLivro."';\" class='btn btn-primary btn-sm'> <i class='bi bi-pencil-fill'></i>
                             </a> 
                             <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-livro&idLivro=".$row -> idLivro."';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a> 
-                    </td>"; 
+                    </td>";  
                     print "</tr>";
+
+
                 }
                 print "</table>";
               }else{
                 print "<p>Não encontrou resultado.</p>";
             }
         ?> 
-
-
-
+</div>
 </body>
 </html>
