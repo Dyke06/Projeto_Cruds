@@ -12,37 +12,37 @@
 </head>
 <body>
     <center>
-    <div class="mt-3 mb-4"><h1 style="color: black;">Dashboard</h1></div>
+    <div class="mt-3 mb-4"><h1 style="color: black; font-family: Arial;">Dashboard</h1></div>
 
     <div class="row">
       <div class="col-sm-6 mb-3 mb-sm-0">
-        <div class="card w-100"style="border:2px solid #056384;">
+        <div class="card w-100"style=" box-shadow: 0px 1px 5px black;">
           <div class="card-body">
-            <p class="card-title" style="color:grey;">Ultimo livro alugado</p>
-            <h4 class="card-text mb-2" style="color: #478079"> <?php 
-                $sql = "SELECT * FROM tbaluguel ORDER BY idAluguel DESC LIMIT 1";
-                $resultado = mysqli_query($conexao, $sql);
+                <p class="card-title" style="color:grey;">Ultimo livro alugado</p>
+                <h4 class="card-text mb-2" style="color: #5E8EF7"> <?php 
+                    $sql = "SELECT * FROM tbaluguel ORDER BY idAluguel DESC LIMIT 1";
+                    $resultado = mysqli_query($conexao, $sql);
 
-                if ($resultado && mysqli_num_rows($resultado) > 0) {
-                  // Extrair os dados do último registro
-                  $ultimoRegistro = mysqli_fetch_assoc($resultado);
-              
-                  // Exibir os dados do último registro
-                  echo "Livro: " . $ultimoRegistro['livroAluguel'] . "<br>";
-              } else {
-                  // Exibir mensagem caso não tenha sido encontrado nenhum registro
-                  echo "Nenhum registro encontrado.";
-              }
-              ?> </h4>
-            <h3><i class="bi bi-journal-check" style="color: #218074;"></i></h3>
-          </div>
+                    if ($resultado && mysqli_num_rows($resultado) > 0) {
+                    // Extrair os dados do último registro
+                    $ultimoRegistro = mysqli_fetch_assoc($resultado);
+                
+                    // Exibir os dados do último registro
+                    echo "Livro: " . $ultimoRegistro['livroAluguel'] . "<br>";
+                } else {
+                    // Exibir mensagem caso não tenha sido encontrado nenhum registro
+                    echo "Nenhum registro encontrado.";
+                }
+                ?> </h4>
+                <h3><i class="bi bi-journal-check" style="color: blue;"></i></h3>
+            </div>
         </div>
       </div>
         <div class="col-sm-6">
-          <div class="card w-100" style="border:2px solid #056384;">
+          <div class="card w-100" style="box-shadow: 0px 1px 5px black;">
             <div class="card-body">
               <p class="card-title" style="color:grey;">Livro mais alugado</p>
-              <h4 class="card-text mb-2" style="color: #478079"><?php 
+              <h4 class="card-text mb-2" style="color: #5E8EF7"><?php 
                 $sql = "SELECT livroAluguel, COUNT(livroAluguel) 
                 AS total_repeticoes FROM tbaluguel GROUP BY livroAluguel ORDER BY total_repeticoes DESC LIMIT 1;";
                 $resultado = mysqli_query($conexao, $sql);
@@ -58,7 +58,7 @@
                   echo "Nenhum registro encontrado.";
               }
               ?></h4>
-              <h3><i class="bi bi-bookmark-star" style="color: #218074;"></i></h3>
+              <h3><i class="bi bi-bookmark-star" style="color: blue;"></i></h3>
             </div>
           </div>
         </div>
@@ -66,13 +66,13 @@
 
       <div class="container">
         <div class="row" >
-            <div class="col-md-6 mt-2"style="border: 2px solid blue;">
-                <div class="embed-responsive embed-responsive-16by9">
+            <div class="col-sm-6 mb-1 mb-sm-0 mt-3 "style="box-shadow: 0px 1px 5px black; border-radius: 5px; ">
+                <div class="embed-responsive embed-responsive-16by9" >
                     <div id="chart_div1" class="w-100"></div>
                 </div>
             </div>
-            <div class="col-md-6 mt-2"style="border: 2px solid blue;">
-                <div class="embed-responsive embed-responsive-16by9">
+            <div class="col-md-6 mt-3 "style="box-shadow: 1px 1px 5px black; border-radius: 5px;">
+                <div class="embed-responsive embed-responsive-15by9">
                     <div id="chart_div2" class="w-100"></div>
                 </div>
             </div>
@@ -142,6 +142,61 @@
         }
         window.addEventListener('resize', drawCharts);
     </script>
+
+<div class="row mt-3">
+  <div class="col-sm-3 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title"><i class="bi bi-journal-medical " style="color: Green;"></i></h2>
+        <p class="card-text">Total de livros alugados:</p>
+        <h4 class=""><?php 
+                $sql = "SELECT alugadoLivro, COUNT(*) 
+                AS total FROM tblivro";
+                $resultado = mysqli_query($conexao, $sql);
+
+                if ($resultado && mysqli_num_rows($resultado) > 0) {
+                  // Extrair os dados do último registro
+                  $Mregistro = mysqli_fetch_assoc($resultado);
+              
+                  // Exibir os dados do último registro
+                  echo "Livro: " . $Mregistro['alugadoLivro'] . "<br>";
+              } else {
+                  // Exibir mensagem caso não tenha sido encontrado nenhum registro
+                  echo "Nenhum registro encontrado.";
+              }
+              ?></h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title"><i class="bi bi-bookmark-plus-fill" style="color:blue;"></i></h2>
+        <p class="card-text">Total de usuários:</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title"><i class="bi bi-journal-minus" style="color: red;"></i></h2>
+        <p class="card-text">Livros devolvidos com atraso:</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title"><i class="bi bi-journal-check" style="color: orange;"></i></h2>
+        <p class="card-text">Livros devolvidos no prazo:</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  
+</div>
 
     </center>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
