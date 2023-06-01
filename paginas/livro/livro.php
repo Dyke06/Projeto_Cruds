@@ -63,7 +63,7 @@
         <?php 
             $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
 
-            $sql = "SELECT * FROM tblivro where idLivro = '{$txt_pesquisa}' or autorLivro LIKE '%{$txt_pesquisa}%' or nomeLivro LIKE '%{$txt_pesquisa}%' or editoraLivro LIKE '%{$txt_pesquisa}%' or dataLivro LIKE '%{$txt_pesquisa}%' or estoqueLivro = '{$txt_pesquisa}' or alugadoLivro = '{$txt_pesquisa}'";
+            $sql = "SELECT idLivro, nomeLivro, autorLivro, editoraLivro, DATE_FORMAT(dataLivro, '%d/%m/%Y') as dataaLivro, estoqueLivro, alugadoLivro FROM tblivro where idLivro = '{$txt_pesquisa}' or autorLivro LIKE '%{$txt_pesquisa}%' or nomeLivro LIKE '%{$txt_pesquisa}%' or editoraLivro LIKE '%{$txt_pesquisa}%' or dataLivro LIKE '%{$txt_pesquisa}%' or estoqueLivro = '{$txt_pesquisa}' or alugadoLivro = '{$txt_pesquisa}'";
 
             $rs = $conexao -> query($sql);
             $qtd = $rs ->num_rows;
@@ -88,7 +88,7 @@
                     print "<td>" .$row -> nomeLivro."</td>";
                     print "<td>" .$row -> autorLivro."</td>"; 
                     print "<td>" .$row -> editoraLivro."</td>"; 
-                    print "<td>" .$row -> dataLivro."</td>";
+                    print "<td>" .$row -> dataaLivro."</td>";
                     print "<td class=''>" .$row -> estoqueLivro."</td>"; 
                     print "<td class=''>" .$row -> alugadoLivro."</td>";
                     print "<td>

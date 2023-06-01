@@ -60,7 +60,7 @@
     <?php 
     $txt_pesquisa = (isset($_POST["txt_pesquisa"])) ? $_POST["txt_pesquisa"] : "";
 
-    $sql = "SELECT * FROM tbaluguel WHERE idAluguel = '{$txt_pesquisa}' OR nomeAluguel LIKE '%{$txt_pesquisa}%' OR livroAluguel LIKE '%{$txt_pesquisa}%' or dataAluguel LIKE '%{$txt_pesquisa}%' or devolucaoAluguel LIKE '%{$txt_pesquisa}%'";
+    $sql = "SELECT idAluguel, livroAluguel, nomeAluguel, DATE_FORMAT(dataAluguel, '%d/%m/%Y') as dataaAluguel, DATE_FORMAt(devolucaoAluguel, '%d/%m/%Y') as devolucaaoAluguel, statusAluguel FROM tbaluguel WHERE idAluguel = '{$txt_pesquisa}' OR nomeAluguel LIKE '%{$txt_pesquisa}%' OR livroAluguel LIKE '%{$txt_pesquisa}%' or dataAluguel LIKE '%{$txt_pesquisa}%' or devolucaoAluguel LIKE '%{$txt_pesquisa}%'";
     $rs = $conexao->query($sql);
     $qtd = $rs->num_rows;
 
@@ -81,15 +81,15 @@
             echo "<td>" . $row->idAluguel . "</td>";
             echo "<td>" . $row->livroAluguel . "</td>";
             echo "<td>" . $row->nomeAluguel . "</td>";
-            echo "<td>" . $row->dataAluguel . "</td>";
-            echo "<td>" . $row->devolucaoAluguel . "</td>";
+            echo "<td>" . $row->dataaAluguel . "</td>";
+            echo "<td>" . $row->devolucaaoAluguel . "</td>";
             if ($row->statusAluguel == "Não devolvido") {
                 echo "<td>" . $row->statusAluguel . "</td>";
                 echo "<td>
                             <a onclick=\"if(confirm('Tem certeza de que deseja devolver esse livro?')){location.href='?menuop=devolver-aluguel&idAluguel=" . $row->idAluguel . "';} else{false;}\" class='btn btn-warning btn-sm'><i class='bi bi-journal-bookmark'></i></a> 
                         </td>";
             } else {
-                echo "<td>" . $row->statusAluguel . " - " . date("Y-m-d") . "</td>";
+                echo "<td>" . $row->statusAluguel . " - " . date("d/m/Y") . "</td>";
                 echo "<td>
                             <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-aluguel&idAluguel=" . $row->idAluguel . "';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-trash-fill'></i></a> 
                     </td>";

@@ -149,9 +149,9 @@
       <div class="card-body">
         <h2 class="card-title"><i class="bi bi-journal-medical " style="color: Green;"></i></h2>
         <p class="card-text">Total de livros alugados:</p>
-        <h4 class=""><?php 
-                $sql = "SELECT alugadoLivro, COUNT(*) 
-                AS total FROM tblivro";
+        <h4 class="" style="color: Green;"><?php 
+                $sql = "SELECT SUM(alugadoLivro) 
+                AS soma FROM tblivro";
                 $resultado = mysqli_query($conexao, $sql);
 
                 if ($resultado && mysqli_num_rows($resultado) > 0) {
@@ -159,7 +159,7 @@
                   $Mregistro = mysqli_fetch_assoc($resultado);
               
                   // Exibir os dados do último registro
-                  echo "Livro: " . $Mregistro['alugadoLivro'] . "<br>";
+                  echo  $Mregistro['soma'] . "<br>";
               } else {
                   // Exibir mensagem caso não tenha sido encontrado nenhum registro
                   echo "Nenhum registro encontrado.";
@@ -173,7 +173,22 @@
       <div class="card-body">
         <h2 class="card-title"><i class="bi bi-bookmark-plus-fill" style="color:blue;"></i></h2>
         <p class="card-text">Total de usuários:</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h4 style="color:blue;"><?php 
+                $sql = "SELECT COUNT(nomeUsuario) 
+                AS total FROM tbusuario";
+                $resultado = mysqli_query($conexao, $sql);
+
+                if ($resultado && mysqli_num_rows($resultado) > 0) {
+                  // Extrair os dados do último registro
+                  $Mregistro = mysqli_fetch_assoc($resultado);
+              
+                  // Exibir os dados do último registro
+                  echo  $Mregistro['total'] . "<br>";
+              } else {
+                  // Exibir mensagem caso não tenha sido encontrado nenhum registro
+                  echo "Nenhum registro encontrado.";
+              }
+              ?></h4>
       </div>
     </div>
   </div>
@@ -182,7 +197,22 @@
       <div class="card-body">
         <h2 class="card-title"><i class="bi bi-journal-minus" style="color: red;"></i></h2>
         <p class="card-text">Livros devolvidos com atraso:</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h4 style="color: red;"><?php 
+                $sql = "SELECT COUNT(statusAluguel) 
+                AS total FROM tbaluguel where statusAluguel = '(Com atraso)'";
+                $resultado = mysqli_query($conexao, $sql);
+
+                if ($resultado && mysqli_num_rows($resultado) > 0) {
+                  // Extrair os dados do último registro
+                  $Mregistro = mysqli_fetch_assoc($resultado);
+              
+                  // Exibir os dados do último registro
+                  echo  $Mregistro['total'] . "<br>";
+              } else {
+                  // Exibir mensagem caso não tenha sido encontrado nenhum registro
+                  echo "Nenhum registro encontrado.";
+              }
+              ?></h4>
       </div>
     </div>
   </div>
@@ -191,7 +221,22 @@
       <div class="card-body">
         <h2 class="card-title"><i class="bi bi-journal-check" style="color: orange;"></i></h2>
         <p class="card-text">Livros devolvidos no prazo:</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h4 style="color: orange;"><?php 
+                $sql = "SELECT COUNT(statusAluguel) 
+                AS total FROM tbaluguel where statusAluguel = '(No prazo)'";
+                $resultado = mysqli_query($conexao, $sql);
+
+                if ($resultado && mysqli_num_rows($resultado) > 0) {
+                  // Extrair os dados do último registro
+                  $Mregistro = mysqli_fetch_assoc($resultado);
+              
+                  // Exibir os dados do último registro
+                  echo  $Mregistro['total'] . "<br>";
+              } else {
+                  // Exibir mensagem caso não tenha sido encontrado nenhum registro
+                  echo "Nenhum registro encontrado.";
+              }
+              ?></h4>
       </div>
     </div>
   </div>

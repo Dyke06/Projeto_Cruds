@@ -5,9 +5,10 @@
     $devolucaoAluguel =  $_POST["devolucaoAluguel"]; 
     $statusAluguel = "Não devolvido";
     $data = $dataAluguel; // Data inicial
+    $hoje = date("Y-m-d");
     $novaData = date('Y-m-d', strtotime($data . ' +1 month'));
 
-    if($devolucaoAluguel < $dataAluguel or $devolucaoAluguel > $novaData or $devolucaoAluguel == $dataAluguel){
+    if($devolucaoAluguel < $dataAluguel or $devolucaoAluguel > $novaData or $devolucaoAluguel == $dataAluguel or $dataAluguel > $hoje){
         print "<script>alert('Data invalida!');</script>";
         print "<script>location.href='?menuop=aluguel';</script>";
     }else{
