@@ -26,17 +26,20 @@
         }
 
         /* Tabela Responsiva */
-        .table-responsive {
-            overflow-x: auto;
+        .table-wrapper {
+            width: 100%;
         }
 
         .table {
             width: 100%;
-            max-width: 100%;
+            table-layout: fixed;
+           
         }
 
-        .table thead th {
+        .table td{
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     </style>
     <title>Document</title>
@@ -64,7 +67,7 @@
             </form> 
         </div>
 </header>
-<div class="table-responsive">
+<div class="table-wrapper">
     <?php 
             $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
 

@@ -19,18 +19,23 @@
         }
 
         /* Tabela Responsiva */
-        .table-responsive {
-            overflow-x: auto;
+        .table-wrapper {
+            width: 100%;
         }
 
         .table {
             width: 100%;
-            max-width: 100%;
+            table-layout: fixed;
+           
         }
 
-        .table thead th {
+        .table td{
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
+
+
     </style>
     <title>Document</title>
 </head>
@@ -56,7 +61,7 @@
     </div>
 </header>
 
-<div class="table-responsive">
+<div class="table-wrapper">
     <?php 
     $txt_pesquisa = (isset($_POST["txt_pesquisa"])) ? $_POST["txt_pesquisa"] : "";
 
@@ -89,7 +94,7 @@
                             <a onclick=\"if(confirm('Tem certeza de que deseja devolver esse livro?')){location.href='?menuop=devolver-aluguel&idAluguel=" . $row->idAluguel . "';} else{false;}\" class='btn btn-warning btn-sm'><i class='bi bi-journal-bookmark'></i></a> 
                         </td>";
             } else {
-                echo "<td>" . $row->statusAluguel . " - " . date("d/m/Y") . "</td>";
+                echo "<td>" . $row->statusAluguel . "</td>";
                 echo "<td>
                             <a onclick=\"if(confirm('Tem certeza de que deseja excluir esse registro?')){location.href='?menuop=excluir-aluguel&idAluguel=" . $row->idAluguel . "';} else{false;}\" class='btn btn-danger btn-sm'><i class='bi bi-trash-fill'></i></a> 
                     </td>";
